@@ -25,11 +25,19 @@ const images = [
 ];
 
 const listRef = document.querySelector("ul");
+
+newFunction(images);
+
+function newFunction(imagesArr) {
+  listRef.insertAdjacentHTML(
+    "afterbegin",
+    imagesArr
+      .map((image) => `<li><img src="${image.url}" alt="${image.alt}"></li>`)
+      .join("")
+  );
+}
+
 console.log(listRef);
 
-const stringOfCreatingListItemsAndImages = images
-  .map((image) => `<li><img src="${image.url}" alt="${image.alt}"></li>`)
-  .join("");
-
-listRef.insertAdjacentHTML("afterbegin", stringOfCreatingListItemsAndImages);
-console.log(listRef);
+listRef.style.display = "flex";
+listRef.style.flexWrap = "wrap";
