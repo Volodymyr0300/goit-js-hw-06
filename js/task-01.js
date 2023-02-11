@@ -18,8 +18,6 @@
 
 // !
 
-categoriesAndNumbersOfCategories();
-
 function categoriesAndNumbersOfCategories() {
   const listItemEl = document.querySelectorAll("li.item");
   console.log(`Number of categories: ${listItemEl.length}`);
@@ -54,3 +52,5 @@ function categoriesAndNumbersOfCategories() {
       .childElementCount;
   console.log(`Elements: ${technologiesChildElementCount}`);
 }
+
+categoriesAndNumbersOfCategories();

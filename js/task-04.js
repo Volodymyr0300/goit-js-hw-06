@@ -1,3 +1,4 @@
+// !
 // Лічильник складається зі спану і кнопок,
 // які по кліку повинні збільшувати і зменшувати його значення на одиницю.
 
@@ -12,25 +13,27 @@
 // Додай слухачів кліків до кнопок, всередині яких збільшуй або зменшуй значення лічильника.
 // Оновлюй інтерфейс новим значенням змінної counterValue.
 
-let counterValue = document.querySelector("span").textContent;
-console.log(counterValue);
-console.log(typeof counterValue);
+// !
+function ItCountsResultOfButtonsClick() {
+  let counterValue = 0;
 
-const btnDecrement = document.querySelector("#counter").firstElementChild;
-console.log(btnDecrement);
-btnDecrement.addEventListener("click", btnDecrementCount);
+  const btnDecrement = document.querySelector("#counter").firstElementChild;
 
-const btnIncrement = document.querySelector("#counter").lastElementChild;
-console.log(btnIncrement);
-btnIncrement.addEventListener("click", () => {
-  return (counterValue = (Number(counterValue) + 1).toString());
-});
+  btnDecrement.addEventListener("click", btnDecrementCount);
 
-function btnDecrementCount() {
-  //   counterValue = ((Number(counterValue) -= 1).toString());
-  //   return counterValue
+  const btnIncrement = document.querySelector("#counter").lastElementChild;
+
+  btnIncrement.addEventListener("click", btnIncrementCount);
+
+  function btnDecrementCount() {
+    counterValue -= 1;
+    document.querySelector("span").textContent = counterValue;
+  }
+
+  function btnIncrementCount() {
+    counterValue += 1;
+    document.querySelector("span").textContent = counterValue;
+  }
 }
 
-function btnIncrementCount() {
-  return (Number(counterValue) + 1).toString();
-}
+ItCountsResultOfButtonsClick();

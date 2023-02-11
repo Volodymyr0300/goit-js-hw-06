@@ -1,3 +1,4 @@
+// !
 // Напиши скрипт для створення галереї зображень на підставі масиву даних.
 // HTML містить список ul.gallery.
 
@@ -9,6 +10,7 @@
 // Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
 // Додай мінімальне оформлення галереї флексбоксами або грідами через CSS класи.
 
+// !
 const images = [
   {
     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -24,20 +26,16 @@ const images = [
   },
 ];
 
-const listRef = document.querySelector("ul");
-
-newFunction(images);
-
-function newFunction(imagesArr) {
+function ItAddListItemsToListAndImgToItems(imagesArr) {
+  const listRef = document.querySelector("ul");
   listRef.insertAdjacentHTML(
     "afterbegin",
     imagesArr
       .map((image) => `<li><img src="${image.url}" alt="${image.alt}"></li>`)
       .join("")
   );
+  listRef.style.display = "flex";
+  listRef.style.flexWrap = "wrap";
 }
 
-console.log(listRef);
-
-listRef.style.display = "flex";
-listRef.style.flexWrap = "wrap";
+ItAddListItemsToListAndImgToItems(images);

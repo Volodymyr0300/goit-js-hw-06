@@ -1,3 +1,4 @@
+// !
 // Напиши скрипт, який під час втрати фокусу на інпуті (подія blur),
 // перевіряє його вміст щодо правильної кількості введених символів.
 
@@ -28,17 +29,17 @@
 //   border-color: #f44336;
 // }
 
-const input = document.querySelector("input");
-console.log(input);
-console.log(Number(input.dataset.length));
+// !
+function QuantityCounterOfInputsSymbols() {
+  const input = document.querySelector("input");
 
-console.log(input.textContent.length);
-console.log(Number(input.dataset.length));
+  function onInputBlur(event) {
+    return event.currentTarget.value.length == Number(input.dataset.length)
+      ? input.classList.remove("invalid") || input.classList.add("valid")
+      : input.classList.remove("valid") || input.classList.add("invalid");
+  }
 
-function onInputBlur(event) {
-  return event.currentTarget.value.length == Number(input.dataset.length)
-    ? input.classList.remove("invalid") || input.classList.add("valid")
-    : input.classList.remove("valid") || input.classList.add("invalid");
+  input.addEventListener("blur", onInputBlur);
 }
 
-input.addEventListener("blur", onInputBlur);
+QuantityCounterOfInputsSymbols();
