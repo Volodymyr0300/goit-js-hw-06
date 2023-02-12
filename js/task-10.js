@@ -28,56 +28,62 @@
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes,
 // у такий спосіб видаляючи всі створені елементи.
 
-//!
-
 // !
 
-// !
+function itCreateColorizeDivAndRemoveItWhenButtonPush() {
+  const inputForm = document.querySelector("#controls").firstElementChild;
 
-// !
+  const btnCreate = document.querySelector("button");
 
-const inputForm = document.querySelector("#controls").firstElementChild;
-console.log(inputForm);
-const btnCreate = document.querySelector("button");
-console.log(btnCreate);
-const btnDestroy = document.querySelector("button").nextElementSibling;
-console.log(btnDestroy);
-const boxOfDivContainers = document.querySelector("#boxes");
-console.log(boxOfDivContainers);
+  const btnDestroy = document.querySelector("button").nextElementSibling;
 
-function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorsAndGrowingWidthAndHeightWhenButtonCreateClick() {
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
+  const boxOfDivContainers = document.querySelector("#boxes");
 
-  function createBoxes(amount) {
-    amount = Number(inputForm.value);
-    const arr = [];
-    let sizes = 30;
-    for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
-      const newElem = document.createElement("div");
-
-      newElem.style.height = `${sizes}px`;
-      newElem.style.width = `${sizes}px`;
-      newElem.style.backgroundColor = getRandomHexColor();
-      sizes += 10;
-      arr.push(newElem);
+  function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick() {
+    function getRandomHexColor() {
+      return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     }
 
-    boxOfDivContainers.insertAdjacentHTML(
-      "afterbegin",
-      arr
-        .map(
-          (arrItem) =>
-            `<div style="height:${arrItem.style.height}; width:${arrItem.style.width}; background-color:${arrItem.style.backgroundColor}"></div>`
-        )
-        .join("")
-    );
+    function createBoxes(amount) {
+      amount = Number(inputForm.value);
+      const arr = [];
+      let sizes = 30;
+      for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
+        const newElem = document.createElement("div");
+
+        newElem.style.height = `${sizes}px`;
+        newElem.style.width = `${sizes}px`;
+        newElem.style.backgroundColor = getRandomHexColor();
+        sizes += 10;
+        arr.push(newElem);
+      }
+
+      boxOfDivContainers.insertAdjacentHTML(
+        "afterbegin",
+        arr
+          .map(
+            (arrItem) =>
+              `<div style="height:${arrItem.style.height}; width:${arrItem.style.width}; background-color:${arrItem.style.backgroundColor}"></div>`
+          )
+          .join("")
+      );
+    }
+
+    btnCreate.addEventListener("click", createBoxes);
   }
 
-  btnCreate.addEventListener("click", createBoxes);
+  itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick();
+
+  function itRemovingCreatingObjects() {
+    btnDestroy.addEventListener("click", removeChildrenOfDivIdBoxes);
+
+    function removeChildrenOfDivIdBoxes() {
+      boxOfDivContainers.childNodes.forEach((element) => {
+        element.remove();
+      });
+    }
+  }
+  itRemovingCreatingObjects();
 }
 
-itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorsAndGrowingWidthAndHeightWhenButtonCreateClick();
-
-btnDestroy.addEventListener("click", () => console.log("."));
+itCreateColorizeDivAndRemoveItWhenButtonPush();
