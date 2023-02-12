@@ -30,9 +30,11 @@
 
 //!
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
+// !
+
+// !
+
+// !
 
 const inputForm = document.querySelector("#controls").firstElementChild;
 console.log(inputForm);
@@ -40,22 +42,42 @@ const btnCreate = document.querySelector("button");
 console.log(btnCreate);
 const btnDestroy = document.querySelector("button").nextElementSibling;
 console.log(btnDestroy);
+const boxOfDivContainers = document.querySelector("#boxes");
+console.log(boxOfDivContainers);
 
-const amount = inputForm.textContent;
+function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorsAndGrowingWidthAndHeightWhenButtonCreateClick() {
+  function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
 
-function createBoxes(amount) {
-  for (let i = 0; i <= amount; i += 1) {
-    const newElem = document.createElement("div");
+  function createBoxes(amount) {
+    amount = Number(inputForm.value);
+    const arr = [];
     let sizes = 30;
-    if (i === 0) {
+    for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
+      const newElem = document.createElement("div");
+
       newElem.style.height = `${sizes}px`;
       newElem.style.width = `${sizes}px`;
+      newElem.style.backgroundColor = getRandomHexColor();
+      sizes += 10;
+      arr.push(newElem);
     }
-    sizes += 10;
-    newElem.style.backgroundColor = getRandomHexColor();
+
+    boxOfDivContainers.insertAdjacentHTML(
+      "afterbegin",
+      arr
+        .map(
+          (arrItem) =>
+            `<div style="height:${arrItem.style.height}; width:${arrItem.style.width}; background-color:${arrItem.style.backgroundColor}"></div>`
+        )
+        .join("")
+    );
   }
+
+  btnCreate.addEventListener("click", createBoxes);
 }
 
-createBoxes(amount);
+itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorsAndGrowingWidthAndHeightWhenButtonCreateClick();
 
-btnCreate.addEventListener("click", event);
+btnDestroy.addEventListener("click", () => console.log("."));
