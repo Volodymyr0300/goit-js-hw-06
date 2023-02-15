@@ -20,16 +20,40 @@ function changeBackgroundColorOnButtonAndWriteNameOfColorOnSpanText() {
   function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   }
+  const randomValue = getRandomHexColor();
+
+  //   const random = function getRandomHexColor() {
+  //     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  //   };
 
   const btnChangeColorAtClick = document.querySelector("button.change-color");
 
-  btnChangeColorAtClick.addEventListener("click", changeBackgroundOfBtn);
+  btnChangeColorAtClick.addEventListener("click", changeBackgroundOfBody);
 
-  function changeBackgroundOfBtn(event) {
-    btnChangeColorAtClick.style.backgroundColor = getRandomHexColor();
+  function changeBackgroundOfBody() {
+    document.body.style.backgroundColor = randomValue;
 
-    document.querySelector(".color").textContent = getRandomHexColor();
+    document.querySelector(".color").textContent = randomValue;
   }
 }
 
 changeBackgroundColorOnButtonAndWriteNameOfColorOnSpanText();
+
+// !
+// function changeBackgroundColorOnButtonAndWriteNameOfColorOnSpanText() {
+//   function getRandomHexColor() {
+//     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+//   }
+
+//   const btnChangeColorAtClick = document.querySelector("button.change-color");
+
+//   btnChangeColorAtClick.addEventListener("click", changeBackgroundOfBtn);
+
+//   function changeBackgroundOfBtn(event) {
+//     btnChangeColorAtClick.style.backgroundColor = getRandomHexColor();
+
+//     document.querySelector(".color").textContent = getRandomHexColor();
+//   }
+// }
+
+// changeBackgroundColorOnButtonAndWriteNameOfColorOnSpanText();
