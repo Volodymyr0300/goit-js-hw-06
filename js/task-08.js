@@ -34,11 +34,15 @@ function createObjectFromSubmitButtonForm() {
       elements: { email, password },
     } = event.currentTarget;
 
-    email.value === "" || password.value === ""
-      ? alert("All form fields must be filled out!")
-      : false;
+    if (email.value === "" || password.value === "") {
+      return alert("All form fields must be filled out!");
+    }
 
-    console.log(`Login: ${email.value}, Password: ${password.value}`);
+    const obj = {
+      Login: `${email.value}`,
+      Password: `${password.value}`,
+    };
+    console.log(obj);
 
     event.currentTarget.reset();
   }
