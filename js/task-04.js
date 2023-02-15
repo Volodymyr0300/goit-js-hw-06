@@ -14,7 +14,7 @@
 // Оновлюй інтерфейс новим значенням змінної counterValue.
 
 // !
-function ItCountsResultOfButtonsClick() {
+function itCountsResultOfButtonsClick() {
   let counterValue = 0;
 
   const btnDecrement = document.querySelector("#counter").firstElementChild;
@@ -36,4 +36,4 @@ function ItCountsResultOfButtonsClick() {
   }
 }
 
-ItCountsResultOfButtonsClick();
+itCountsResultOfButtonsClick();

@@ -30,7 +30,7 @@
 // }
 
 // !
-function QuantityCounterOfInputsSymbols() {
+function quantityCounterOfInputsSymbols() {
   const input = document.querySelector("input");
 
   function onInputBlur(event) {
@@ -42,4 +42,4 @@ function QuantityCounterOfInputsSymbols() {
   input.addEventListener("blur", onInputBlur);
 }
 
-QuantityCounterOfInputsSymbols();
+quantityCounterOfInputsSymbols();

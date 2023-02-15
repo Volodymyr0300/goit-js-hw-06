@@ -26,7 +26,7 @@ const images = [
   },
 ];
 
-function ItAddListItemsToListAndImgToItems(imagesArr) {
+function itAddListItemsToListAndImgToItems(imagesArr) {
   const listRef = document.querySelector("ul");
   listRef.insertAdjacentHTML(
     "afterbegin",
@@ -38,4 +38,4 @@ function ItAddListItemsToListAndImgToItems(imagesArr) {
   listRef.style.flexWrap = "wrap";
 }
 
-ItAddListItemsToListAndImgToItems(images);
+itAddListItemsToListAndImgToItems(images);

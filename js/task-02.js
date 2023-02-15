@@ -22,43 +22,17 @@ const ingredients = [
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 
 // !
-
-function listItemsAdding() {
+function listItemsAdding(ingredients) {
   const listEl = document.querySelector("#ingredients");
-  console.log(listEl);
 
-  const listItemPotatoes = document.createElement("li");
-  listItemPotatoes.textContent = "Potatoes";
-  listItemPotatoes.className = "item";
-
-  const listItemMushrooms = document.createElement("li");
-  listItemMushrooms.textContent = "Mushrooms";
-  listItemMushrooms.className = "item";
-
-  const listItemGarlic = document.createElement("li");
-  listItemGarlic.textContent = "Garlic";
-  listItemGarlic.className = "item";
-
-  const listItemTomatos = document.createElement("li");
-  listItemTomatos.textContent = "Tomatos";
-  listItemTomatos.className = "item";
-
-  const listItemHerbs = document.createElement("li");
-  listItemHerbs.textContent = "Herbs";
-  listItemHerbs.className = "item";
-
-  const listItemCondiments = document.createElement("li");
-  listItemCondiments.textContent = "Condiments";
-  listItemCondiments.className = "item";
-
-  listEl.append(
-    listItemPotatoes,
-    listItemMushrooms,
-    listItemGarlic,
-    listItemTomatos,
-    listItemHerbs,
-    listItemCondiments
+  listEl.insertAdjacentHTML(
+    "afterbegin",
+    ingredients
+      .map((ingredient) => `<li class="item">${ingredient}</li>`)
+      .join("")
   );
 }
 
-listItemsAdding();
+listItemsAdding(ingredients);
+
+// !
