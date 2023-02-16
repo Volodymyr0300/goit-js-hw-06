@@ -21,48 +21,14 @@
 
 function categoriesAndNumbersOfCategories() {
   const listRef = document.querySelector("#categories");
-  console.log(listRef);
-  console.dir(listRef);
+
   console.log(`Number of categories: ${listRef.children.length}`);
+
+  const children = listRef.children;
+  for (const child of children) {
+    console.log(`Category: ${child.firstElementChild.textContent}`);
+    console.log(`Elements: ${child.lastElementChild.children.length}`);
+  }
 }
 
 categoriesAndNumbersOfCategories();
-
-// !
-
-// function categoriesAndNumbersOfCategories() {
-//   const listItemEl = document.querySelectorAll("li.item");
-//   console.log(`Number of categories: ${listItemEl.length}`);
-
-//   const animalsTextContent =
-//     document.body.querySelector("#categories").firstElementChild
-//       .firstElementChild.textContent;
-//   console.log(`Category: ${animalsTextContent}`);
-
-//   const animalsChildElementCount =
-//     document.body.querySelector("#categories").firstElementChild
-//       .lastElementChild.childElementCount;
-//   console.log(`Elements: ${animalsChildElementCount}`);
-
-//   const productsTextContent =
-//     document.querySelector("#categories").firstElementChild.nextElementSibling
-//       .firstElementChild.textContent;
-//   console.log(`Category: ${productsTextContent}`);
-
-//   const productsChildElementCount =
-//     document.querySelector("#categories").firstElementChild.nextElementSibling
-//       .lastElementChild.childElementCount;
-//   console.log(`Elements: ${productsChildElementCount}`);
-
-//   const technologiesTextContent =
-//     document.body.querySelector("#categories").lastElementChild
-//       .firstElementChild.textContent;
-//   console.log(`Category: ${technologiesTextContent}`);
-
-//   const technologiesChildElementCount =
-//     document.body.querySelector("#categories").lastElementChild.lastElementChild
-//       .childElementCount;
-//   console.log(`Elements: ${technologiesChildElementCount}`);
-// }
-
-// categoriesAndNumbersOfCategories();
