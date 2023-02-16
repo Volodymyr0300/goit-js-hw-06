@@ -44,7 +44,7 @@ const btnDestroy = document.querySelector("button").nextElementSibling;
 
 const boxOfDivContainers = document.querySelector("#boxes");
 
-function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick() {
+function itCreateColorDiv() {
   function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   }
@@ -71,7 +71,7 @@ function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRando
   btnCreate.addEventListener("click", createBoxes);
 }
 
-itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick();
+itCreateColorDiv();
 
 function itRemovingCreatingObjects() {
   btnDestroy.addEventListener("click", removeChildrenOfDivIdBoxes);
