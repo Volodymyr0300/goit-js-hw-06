@@ -16,22 +16,19 @@
 // }
 
 // !
-function changeBackgroundColorOnButtonAndWriteNameOfColorOnSpanText() {
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
 
-  const btnChangeColorAtClick = document.querySelector("button.change-color");
-
-  btnChangeColorAtClick.addEventListener("click", changeBackgroundOfBody);
-
-  function changeBackgroundOfBody() {
-    const randomValue = getRandomHexColor();
-
-    document.body.style.backgroundColor = randomValue;
-
-    document.querySelector(".color").textContent = randomValue;
-  }
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-changeBackgroundColorOnButtonAndWriteNameOfColorOnSpanText();
+const btnChangeColorAtClick = document.querySelector("button.change-color");
+
+btnChangeColorAtClick.addEventListener("click", changeBackgroundOfBody);
+
+function changeBackgroundOfBody() {
+  const randomValue = getRandomHexColor();
+
+  document.body.style.backgroundColor = randomValue;
+
+  document.querySelector(".color").textContent = randomValue;
+}

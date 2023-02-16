@@ -22,30 +22,26 @@
 // Для доступу до елементів форми використовуй властивість elements.
 // Виведи об'єкт із введеними даними в консоль і очисти значення полів форми методом reset.
 
-function createObjectFromSubmitButtonForm() {
-  const formEmailPassword = document.querySelector(".login-form");
+const formEmailPassword = document.querySelector(".login-form");
 
-  formEmailPassword.addEventListener("submit", btnSubmitEventListener);
+formEmailPassword.addEventListener("submit", btnSubmitEventListener);
 
-  function btnSubmitEventListener(event) {
-    event.preventDefault();
+function btnSubmitEventListener(event) {
+  event.preventDefault();
 
-    const {
-      elements: { email, password },
-    } = event.currentTarget;
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
 
-    if (email.value === "" || password.value === "") {
-      return alert("All form fields must be filled out!");
-    }
-
-    const obj = {
-      Login: `${email.value}`,
-      Password: `${password.value}`,
-    };
-    console.log(obj);
-
-    event.currentTarget.reset();
+  if (email.value === "" || password.value === "") {
+    return alert("All form fields must be filled out!");
   }
-}
 
-createObjectFromSubmitButtonForm();
+  const obj = {
+    Login: `${email.value}`,
+    Password: `${password.value}`,
+  };
+  console.log(obj);
+
+  event.currentTarget.reset();
+}

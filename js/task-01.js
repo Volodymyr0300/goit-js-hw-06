@@ -19,16 +19,12 @@
 
 // !
 
-function categoriesAndNumbersOfCategories() {
-  const listRef = document.querySelector("#categories");
+const listRef = document.querySelector("#categories");
 
-  console.log(`Number of categories: ${listRef.children.length}`);
+console.log(`Number of categories: ${listRef.children.length}`);
 
-  const children = listRef.children;
-  for (const child of children) {
-    console.log(`Category: ${child.firstElementChild.textContent}`);
-    console.log(`Elements: ${child.lastElementChild.children.length}`);
-  }
+const children = listRef.children;
+for (const child of children) {
+  console.log(`Category: ${child.firstElementChild.textContent}`);
+  console.log(`Elements: ${child.lastElementChild.children.length}`);
 }
-
-categoriesAndNumbersOfCategories();

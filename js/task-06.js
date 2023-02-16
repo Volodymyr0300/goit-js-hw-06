@@ -30,16 +30,13 @@
 // }
 
 // !
-function quantityCounterOfInputsSymbols() {
-  const input = document.querySelector("input");
 
-  function onInputBlur(event) {
-    return event.currentTarget.value.length === Number(input.dataset.length)
-      ? input.classList.remove("invalid") || input.classList.add("valid")
-      : input.classList.remove("valid") || input.classList.add("invalid");
-  }
+const input = document.querySelector("input");
 
-  input.addEventListener("blur", onInputBlur);
+function onInputBlur(event) {
+  return event.currentTarget.value.length === Number(input.dataset.length)
+    ? input.classList.remove("invalid") || input.classList.add("valid")
+    : input.classList.remove("valid") || input.classList.add("invalid");
 }
 
-quantityCounterOfInputsSymbols();
+input.addEventListener("blur", onInputBlur);

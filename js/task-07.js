@@ -9,16 +9,12 @@
 
 // !
 
-function itChangeFontSizeOfTextWhenInputChange() {
-  const input = document.querySelector("#font-size-control");
-  const text = document.querySelector("#text");
+const input = document.querySelector("#font-size-control");
+const text = document.querySelector("#text");
 
-  function onInputChange(event) {
-    console.log(Math.floor(event.currentTarget.value / 2));
-    text.style.fontSize = `${Math.floor(event.currentTarget.value / 2)}px`;
-  }
-
-  input.addEventListener("input", onInputChange);
+function onInputChange(event) {
+  console.log(Math.floor(event.currentTarget.value / 2));
+  text.style.fontSize = `${Math.floor(event.currentTarget.value / 2)}px`;
 }
 
-itChangeFontSizeOfTextWhenInputChange();
+input.addEventListener("input", onInputChange);

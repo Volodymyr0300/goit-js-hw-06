@@ -14,26 +14,23 @@
 // Оновлюй інтерфейс новим значенням змінної counterValue.
 
 // !
-function itCountsResultOfButtonsClick() {
-  let counterValue = 0;
 
-  const btnDecrement = document.querySelector("#counter").firstElementChild;
+let counterValue = 0;
 
-  btnDecrement.addEventListener("click", btnDecrementCount);
+const btnDecrement = document.querySelector("#counter").firstElementChild;
 
-  const btnIncrement = document.querySelector("#counter").lastElementChild;
+btnDecrement.addEventListener("click", btnDecrementCount);
 
-  btnIncrement.addEventListener("click", btnIncrementCount);
+const btnIncrement = document.querySelector("#counter").lastElementChild;
 
-  function btnDecrementCount() {
-    counterValue -= 1;
-    document.querySelector("span").textContent = counterValue;
-  }
+btnIncrement.addEventListener("click", btnIncrementCount);
 
-  function btnIncrementCount() {
-    counterValue += 1;
-    document.querySelector("span").textContent = counterValue;
-  }
+function btnDecrementCount() {
+  counterValue -= 1;
+  document.querySelector("span").textContent = counterValue;
 }
 
-itCountsResultOfButtonsClick();
+function btnIncrementCount() {
+  counterValue += 1;
+  document.querySelector("span").textContent = counterValue;
+}

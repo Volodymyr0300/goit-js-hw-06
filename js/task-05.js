@@ -7,15 +7,12 @@
 // <h1>Hello, <span id="name-output">Anonymous</span>!</h1>
 
 // !
-function itWritesInputsNameToTitleWhenInputChange() {
-  const input = document.querySelector("#name-input");
-  const title = document.querySelector("#name-output");
-  function onInputChange(event) {
-    event.currentTarget.value === ""
-      ? (title.textContent = "Anonymous")
-      : (title.textContent = event.currentTarget.value);
-  }
-  input.addEventListener("input", onInputChange);
-}
 
-itWritesInputsNameToTitleWhenInputChange();
+const input = document.querySelector("#name-input");
+const title = document.querySelector("#name-output");
+function onInputChange(event) {
+  event.currentTarget.value === ""
+    ? (title.textContent = "Anonymous")
+    : (title.textContent = event.currentTarget.value);
+}
+input.addEventListener("input", onInputChange);

@@ -26,16 +26,12 @@ const images = [
   },
 ];
 
-function itAddListItemsToListAndImgToItems(imagesArr) {
-  const listRef = document.querySelector("ul");
-  listRef.insertAdjacentHTML(
-    "afterbegin",
-    imagesArr
-      .map((image) => `<li><img src="${image.url}" alt="${image.alt}"></li>`)
-      .join("")
-  );
-  listRef.style.display = "flex";
-  listRef.style.flexWrap = "wrap";
-}
-
-itAddListItemsToListAndImgToItems(images);
+const listRef = document.querySelector("ul");
+listRef.insertAdjacentHTML(
+  "afterbegin",
+  images
+    .map((image) => `<li><img src="${image.url}" alt="${image.alt}"></li>`)
+    .join("")
+);
+listRef.style.display = "flex";
+listRef.style.flexWrap = "wrap";

@@ -36,62 +36,58 @@
 // ! Пробував через reduce() чи for of (штучно створивши пустий масив), але не вийшло.
 // ??? Якщо є можливість наведіть будь-ласка, як саме Ви бачите рішення і що використовуючи.
 
-function itCreateColorizeDivAndRemoveItWhenButtonPush() {
-  const inputForm = document.querySelector("#controls").firstElementChild;
+const inputForm = document.querySelector("#controls").firstElementChild;
 
-  const btnCreate = document.querySelector("button");
+const btnCreate = document.querySelector("button");
 
-  const btnDestroy = document.querySelector("button").nextElementSibling;
+const btnDestroy = document.querySelector("button").nextElementSibling;
 
-  const boxOfDivContainers = document.querySelector("#boxes");
+const boxOfDivContainers = document.querySelector("#boxes");
 
-  function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick() {
-    function getRandomHexColor() {
-      return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    }
-
-    function createBoxes() {
-      const arr = [];
-
-      let sizes = 30;
-      for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
-        const newElem = document.createElement("div");
-
-        newElem.style.height = `${sizes}px`;
-        newElem.style.width = `${sizes}px`;
-        newElem.style.backgroundColor = getRandomHexColor();
-        sizes += 10;
-        arr.push(newElem);
-      }
-
-      console.log(arr);
-
-      boxOfDivContainers.insertAdjacentHTML(
-        "afterbegin",
-        arr
-          .map(
-            (arrItem) =>
-              `<div style="height:${arrItem.style.height}; width:${arrItem.style.width}; background-color:${arrItem.style.backgroundColor}"></div>`
-          )
-          .join("")
-      );
-    }
-
-    btnCreate.addEventListener("click", createBoxes);
+function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick() {
+  function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   }
 
-  itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick();
+  function createBoxes() {
+    const arr = [];
 
-  function itRemovingCreatingObjects() {
-    btnDestroy.addEventListener("click", removeChildrenOfDivIdBoxes);
+    let sizes = 30;
+    for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
+      const newElem = document.createElement("div");
 
-    function removeChildrenOfDivIdBoxes() {
-      boxOfDivContainers.childNodes.forEach((element) => {
-        element.remove();
-      });
+      newElem.style.height = `${sizes}px`;
+      newElem.style.width = `${sizes}px`;
+      newElem.style.backgroundColor = getRandomHexColor();
+      sizes += 10;
+      arr.push(newElem);
     }
+
+    console.log(arr);
+
+    boxOfDivContainers.insertAdjacentHTML(
+      "afterbegin",
+      arr
+        .map(
+          (arrItem) =>
+            `<div style="height:${arrItem.style.height}; width:${arrItem.style.width}; background-color:${arrItem.style.backgroundColor}"></div>`
+        )
+        .join("")
+    );
   }
-  itRemovingCreatingObjects();
+
+  btnCreate.addEventListener("click", createBoxes);
 }
 
-itCreateColorizeDivAndRemoveItWhenButtonPush();
+itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRandomBGColorAndGrowingWidthAndHeightWhenButtonPushClick();
+
+function itRemovingCreatingObjects() {
+  btnDestroy.addEventListener("click", removeChildrenOfDivIdBoxes);
+
+  function removeChildrenOfDivIdBoxes() {
+    boxOfDivContainers.childNodes.forEach((element) => {
+      element.remove();
+    });
+  }
+}
+itRemovingCreatingObjects();

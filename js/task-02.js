@@ -22,17 +22,27 @@ const ingredients = [
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 
 // !
-function listItemsAdding(ingredients) {
-  const listEl = document.querySelector("#ingredients");
+// const listEl = document.querySelector("#ingredients");
 
-  listEl.insertAdjacentHTML(
-    "afterbegin",
-    ingredients
-      .map((ingredient) => `<li class="item">${ingredient}</li>`)
-      .join("")
-  );
-}
-
-listItemsAdding(ingredients);
+// listEl.insertAdjacentHTML(
+//   "afterbegin",
+//   ingredients
+//     .map((ingredient) => `<li class="item">${ingredient}</li>`)
+//     .join("")
+// );
 
 // !
+
+const listEl = document.querySelector("#ingredients");
+
+listEl.insertAdjacentHTML(
+  "afterbegin",
+  ingredients
+    .map((ingredient) => {
+      const ingrid = document.createElement("li");
+      ingrid.classList.add("item");
+      ingrid.textContent = ingredient;
+      return ingrid.outerHTML;
+    })
+    .join("")
+);
