@@ -30,6 +30,12 @@
 
 // !
 
+// ! 8) у десятому завданні потрібно використати щось одне або шаблонні рядки або метод insertAdjacentHTML.
+// ! Я не зрозумів як я можу використати або рядки або метод insertAdjacentHTML.
+// ! Метод працює з рядками, а рядки змінюється адже змінюється width і height.
+// ! Пробував через reduce() чи for of (штучно створивши пустий масив), але не вийшло.
+// ??? Якщо є можливість наведіть будь-ласка, як саме Ви бачите рішення і що використовуючи.
+
 function itCreateColorizeDivAndRemoveItWhenButtonPush() {
   const inputForm = document.querySelector("#controls").firstElementChild;
 
@@ -44,9 +50,9 @@ function itCreateColorizeDivAndRemoveItWhenButtonPush() {
       return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     }
 
-    function createBoxes(amount) {
-      amount = Number(inputForm.value);
+    function createBoxes() {
       const arr = [];
+
       let sizes = 30;
       for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
         const newElem = document.createElement("div");
@@ -57,6 +63,8 @@ function itCreateColorizeDivAndRemoveItWhenButtonPush() {
         sizes += 10;
         arr.push(newElem);
       }
+
+      console.log(arr);
 
       boxOfDivContainers.insertAdjacentHTML(
         "afterbegin",
