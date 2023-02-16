@@ -22,16 +22,6 @@ const ingredients = [
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 
 // !
-// const listEl = document.querySelector("#ingredients");
-
-// listEl.insertAdjacentHTML(
-//   "afterbegin",
-//   ingredients
-//     .map((ingredient) => `<li class="item">${ingredient}</li>`)
-//     .join("")
-// );
-
-// !
 
 const listEl = document.querySelector("#ingredients");
 
