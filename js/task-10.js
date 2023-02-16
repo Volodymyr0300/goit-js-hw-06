@@ -65,15 +65,7 @@ function itTakesValueInInputAndChangeItToNumberAndCreatingDivContainersWithRando
 
     console.log(arr);
 
-    boxOfDivContainers.insertAdjacentHTML(
-      "afterbegin",
-      arr
-        .map(
-          (arrItem) =>
-            `<div style="height:${arrItem.style.height}; width:${arrItem.style.width}; background-color:${arrItem.style.backgroundColor}"></div>`
-        )
-        .join("")
-    );
+    boxOfDivContainers.append(...arr);
   }
 
   btnCreate.addEventListener("click", createBoxes);
