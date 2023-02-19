@@ -44,42 +44,33 @@ const btnDestroy = document.querySelector("button").nextElementSibling;
 
 const boxOfDivContainers = document.querySelector("#boxes");
 
-function itCreateColorDiv() {
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
-
-  function createBoxes() {
-    const arr = [];
-
-    let sizes = 30;
-    for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
-      const newElem = document.createElement("div");
-
-      newElem.style.height = `${sizes}px`;
-      newElem.style.width = `${sizes}px`;
-      newElem.style.backgroundColor = getRandomHexColor();
-      sizes += 10;
-      arr.push(newElem);
-    }
-
-    console.log(arr);
-
-    boxOfDivContainers.append(...arr);
-  }
-
-  btnCreate.addEventListener("click", createBoxes);
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-itCreateColorDiv();
+function createBoxes() {
+  const arr = [];
 
-function itRemovingCreatingObjects() {
-  btnDestroy.addEventListener("click", removeChildrenOfDivIdBoxes);
+  let sizes = 30;
+  for (let i = 0; i <= Number(inputForm.value) - 1; i += 1) {
+    const newElem = document.createElement("div");
 
-  function removeChildrenOfDivIdBoxes() {
-    boxOfDivContainers.childNodes.forEach((element) => {
-      element.remove();
-    });
+    newElem.style.height = `${sizes}px`;
+    newElem.style.width = `${sizes}px`;
+    newElem.style.backgroundColor = getRandomHexColor();
+    sizes += 10;
+    arr.push(newElem);
   }
+
+  console.log(arr);
+
+  boxOfDivContainers.append(...arr);
 }
-itRemovingCreatingObjects();
+
+btnCreate.addEventListener("click", createBoxes);
+
+btnDestroy.addEventListener("click", removeChildrenOfDivIdBoxes);
+
+function removeChildrenOfDivIdBoxes() {
+  boxOfDivContainers.innerHTML = "";
+}
